@@ -43,7 +43,6 @@ function listProducts(params: Record<string, unknown>) {
   };
 }
 
-let requestSeq = 1040;
 
 export const mockAdapter: AxiosAdapter = async (config) => {
   const method = (config.method || 'get').toLowerCase();
@@ -94,14 +93,14 @@ export const mockAdapter: AxiosAdapter = async (config) => {
       });
     }
     if (url === '/requests') {
-      requestSeq += 1;
-      return ok(config, {
-        success: true, code: `UBEI-${requestSeq}`, publicToken: `demo-${requestSeq}`, status: 'NEW',
-        message: 'Bu bir örnek mağazadır; talebiniz kaydedilmedi.',
-      }, 201);
+            return ok(config, {
+        success: false, code: '', publicToken: '', status: 'PAUSED',
+        message: 'Sipariş alımına geçici olarak ara verdik.',
+      }, 200);
     }
-    if (url === '/contact') return ok(config, { success: true, message: 'Bu bir örnek mağazadır; mesajınız gönderilmedi.' });
+    // Form sunucuya bağlı değil; mesajı yutup "gönderildi" demek yerine e-postaya yönlendir
+    if (url === '/contact') fail(config, 503, 'İletişim formu şu anda kapalı. Lütfen ubei00@gmail.com adresine yazın.');
   }
 
-  return fail(config, 405, 'Bu örnek mağazada bu işlem yapılamaz.');
+  return fail(config, 405, 'Bu işlem şu anda yapılamıyor.');
 };

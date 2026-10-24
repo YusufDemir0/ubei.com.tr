@@ -1,18 +1,20 @@
-# UBEI · örnek telefon aksesuarı mağazası
+# UBEI · telefon aksesuarı e-ticaret sitesi
 
-Türkiye geneline satış yapan bir telefon aksesuarı mağazası senaryosuyla hazırlanmış e-ticaret ön yüzü.
-Arayüz gerçek bir müşteri projesinin ticaret tarafından alındı; backend yok, ürünler ve içerik örnek veridir.
+Telefon ve akıllı saat aksesuarları satan, Türkiye geneline gönderim yapan bir online mağaza için
+hazırlanmış e-ticaret ön yüzü: kategori ve filtreler, ürün sayfaları, hızlı önizleme, favoriler,
+sepet ve sipariş adımı.
 
 - Canlı: https://ubei.com.tr
-- Hazırlayan: [Yusuf Demir](https://yusufdemir.com.tr)
+- Geliştiren: [Yusuf Demir](https://yusufdemir.com.tr)
 
-## Nasıl çalışır
+## Teknik
 
 - Next.js 15 (App Router) + Tailwind CSS 4, `output: 'export'` ile tamamen statik.
 - `src/mock/data.ts`: kategoriler, ürünler ve sayfa içerikleri (CMS blokları).
-- `src/mock/adapter.ts`: API istemcisinin altına takılan sahte adaptör. Bileşenler gerçek backend'le
-  konuşuyormuş gibi çalışır; istekler ağa çıkmaz.
-- Ürün görselleri `scripts/urun-gorselleri.py` ile üretilen SVG çizimlerdir.
+- `src/mock/adapter.ts`: API istemcisinin altına takılan adaptör; bileşenler bir backend'le konuşur
+  gibi çalışır, istekler bu veriden yanıtlanır. Gerçek bir API'ye bağlamak için adaptörü kaldırmak yeterli.
+- `src/lib/storeStatus.ts`: sipariş alımını açıp kapatan anahtar (`ORDERS_PAUSED`).
+- Fotoğraflar Unsplash lisansıyla kullanılmıştır, kaynaklar `GORSELLER.md` dosyasında.
 
 ## Geliştirme
 
@@ -25,5 +27,3 @@ npm run build    # statik çıktı: out/
 ## Yayın
 
 `main` dalına her push'ta `.github/workflows/pages.yml` siteyi derleyip GitHub Pages'e yükler.
-Repo ayarlarında **Pages → Source: GitHub Actions** seçilmeli; özel alan adı (`ubei.com.tr`) aynı
-sayfadan girilir.

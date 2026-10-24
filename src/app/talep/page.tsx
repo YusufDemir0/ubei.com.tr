@@ -1,5 +1,7 @@
 'use client';
 
+import OrderPauseNotice from '../../components/OrderPauseNotice';
+import { ORDERS_PAUSED } from '../../lib/storeStatus';
 import React, { useState, useEffect, useId } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -308,7 +310,7 @@ export default function OrderRequestPage() {
 
       if (res.success && res.publicToken) {
         clearCart();
-        router.push(`/talep/tamam?kod=${encodeURIComponent(res.code)}`);
+        router.push('/');
       } else {
         setFormError(res.message || 'Sipariş oluşturulamadı. Lütfen tekrar deneyiniz.');
       }
@@ -362,10 +364,11 @@ export default function OrderRequestPage() {
             Siparişi tamamla
           </h1>
           <p className="text-sm text-neutral-600 mt-1.5 max-w-2xl">
-            Teslimat bilgilerinizi girin; siparişinizi WhatsApp’tan onaylayıp ödeme bağlantısını gönderelim.
-            <strong className="block mt-1 text-ink">Bu bir örnek mağazadır: bilgileriniz hiçbir yere gönderilmez, sipariş oluşmaz.</strong>
+            Teslimat bilgilerinizi girin; siparişinizi onaylayıp ödeme bağlantısını gönderelim.
           </p>
         </div>
+
+        <div className="mb-8"><OrderPauseNotice /></div>
 
         {quoteWarning && (
           <div role="status" className="mb-8 p-4 bg-paper border-l-4 border-signal flex items-center gap-3 text-ink text-sm">
@@ -671,7 +674,7 @@ export default function OrderRequestPage() {
                     placeholder="Mahalle, cadde, sokak veya site adı"
                     className={inputClass()}
                   />
-                  <p className="text-xs text-neutral-500 mt-1">Nakliye planlaması ve kat uygunluğu için kullanılır.</p>
+                  <p className="text-xs text-neutral-500 mt-1">Kargo teslimatı için kullanılır.</p>
                 </div>
               </div>
             </fieldset>
@@ -862,7 +865,7 @@ export default function OrderRequestPage() {
               {/* Submit CTA */}
               <button
                 type="submit"
-                disabled={isSubmitting || isQuoting || deliveryBlocked}
+                disabled={ORDERS_PAUSED || isSubmitting || isQuoting || deliveryBlocked}
                 className="w-full h-12 flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-ink text-sm font-semibold transition-colors rounded-xs cursor-pointer disabled:bg-neutral-300 disabled:text-neutral-600 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
@@ -875,6 +878,8 @@ export default function OrderRequestPage() {
                     <Loader2 className="h-4 w-4 animate-spin" />
                     <span>Fiyatlar doğrulanıyor…</span>
                   </>
+                ) : ORDERS_PAUSED ? (
+                  <span>Sipariş alımı geçici olarak kapalı</span>
                 ) : deliveryBlocked ? (
                   <span>Seçilen ile teslimat yapılamıyor</span>
                 ) : (
@@ -910,7 +915,7 @@ export default function OrderRequestPage() {
             </h3>
             <div className="text-sm text-neutral-700 space-y-3 leading-relaxed">
               <p>
-                UBEI bir portföy için hazırlanmış <strong>örnek mağazadır</strong>. Bu formdaki bilgiler hiçbir sunucuya gönderilmez ve saklanmaz.
+                <strong>UBEI</strong> olarak kişisel verilerinizi yalnızca siparişinizi hazırlamak ve size ulaştırmak için kullanırız.
               </p>
               <p>
                 <strong>İşlenen Veriler:</strong> Adınız, soyadınız, telefon numaranız, e-posta adresiniz ve talep ettiğiniz teslimat ili/ilçesi.

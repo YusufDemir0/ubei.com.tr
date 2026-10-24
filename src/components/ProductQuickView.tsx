@@ -1,5 +1,6 @@
 'use client';
 
+import { ORDERS_PAUSED } from '../lib/storeStatus';
 import React, { useState, useEffect } from 'react';
 import { X, Heart, ShoppingBag, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
 import { useUIStore } from '../stores/useUIStore';
@@ -135,7 +136,7 @@ export const ProductQuickView: React.FC = () => {
               {product.stock && product.stock > 0 ? 'Stokta' : 'Tedarikte'}
             </span>
             <span className="text-neutral-300">|</span>
-            <span className="text-xs text-neutral-500 font-normal">15:00’e kadar aynı gün kargo</span>
+            <span className="text-xs text-neutral-500 font-normal">{ORDERS_PAUSED ? 'Sipariş alımı geçici olarak kapalı' : '15:00’e kadar aynı gün kargo'}</span>
           </div>
 
           {/* Prices */}

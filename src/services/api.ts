@@ -36,7 +36,7 @@ apiClient.interceptors.response.use(
   }
 );
 
-// Örnek mağaza: backend yok, tüm istekler mock/data.ts'ten yanıtlanır
+// Statik yayın: backend yok, tüm istekler mock/data.ts'ten yanıtlanır
 apiClient.defaults.adapter = mockAdapter;
 
 export default apiClient;

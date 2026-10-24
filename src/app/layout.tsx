@@ -42,6 +42,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: '/marka/simge.svg', type: 'image/svg+xml' }],
   },
+  openGraph: {
+    siteName: 'UBEI',
+    locale: 'tr_TR',
+    type: 'website',
+    images: [{ url: '/kapak/kapak-1.webp', width: 1600, height: 900, alt: 'UBEI telefon aksesuarları' }],
+  },
 };
 
 export default function RootLayout({

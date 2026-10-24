@@ -18,6 +18,8 @@ import apiClient from '../services/api';
 import { getProductImages } from '../lib/productImages';
 import type { Product, ProductColorVariant, ProductSetPiece } from '../types';
 import ProductCard from './ProductCard';
+import OrderPauseNotice from './OrderPauseNotice';
+import { ORDERS_PAUSED } from '../lib/storeStatus';
 import LeadTimeBadge from './LeadTimeBadge';
 import EdgeNav from './EdgeNav';
 import { toast } from '../stores/useToastStore';
@@ -607,11 +609,11 @@ export default function ProductDetailClient({ id, initialProduct }: ProductDetai
                   </span>
                 )}
               </div>
-              <p className="text-xs text-neutral-500">15:00’e kadar verilen siparişler aynı gün kargoda. 1.000 TL üzeri kargo ücretsiz.</p>
-              <p className="text-xs text-neutral-600 pt-1">
+              {!ORDERS_PAUSED && <p className="text-xs text-neutral-500">15:00’e kadar verilen siparişler aynı gün kargoda. 1.000 TL üzeri kargo ücretsiz.</p>}
+              {waNumber && <p className="text-xs text-neutral-600 pt-1">
                 10 adet ve üzeri alım için{' '}
                 <a
-                  hidden={!waNumber} href={`https://wa.me/${waNumber}?text=${encodeURIComponent(`Merhaba UBEI, "${product.name}" üründen toplu almak istiyoruz. Adetli fiyat alabilir miyiz?`)}`}
+                  href={`https://wa.me/${waNumber}?text=${encodeURIComponent(`Merhaba UBEI, "${product.name}" üründen toplu almak istiyoruz. Adetli fiyat alabilir miyiz?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium text-wood underline underline-offset-2 hover:text-wood-dark"
@@ -619,8 +621,10 @@ export default function ProductDetailClient({ id, initialProduct }: ProductDetai
                   toplu fiyat isteyin
                 </a>
                 .
-              </p>
+              </p>}
             </div>
+
+            <OrderPauseNotice />
 
             {/* Quantity Selector & Action Buttons */}
             <div ref={setActionsEl} className="space-y-3 pt-1">

@@ -48,13 +48,13 @@ export const DEFAULT_CORPORATE_CONFIG: CorporateConfig = {
   heroHighlight: 'tek sepette.',
   heroSubtitle:
     'UBEI, telefon ve akıllı saat aksesuarlarını Türkiye’nin her yerine gönderen bir online mağazadır. Her ürünün hangi modelle uyumlu olduğunu açıkça yazarız; yanlış ürün almazsınız.',
-  heroImage: '/kapak/kapak-1.svg',
+  heroImage: '/kapak/hakkimizda-1.webp',
   storyTitle: 'Nasıl çalışıyoruz',
   storyContent:
-    'Ürünleri tek tek deneyip seçiyoruz: kılıfın tuşlara rahat basıp basmadığına, şarj cihazının yazan gücü gerçekten verip vermediğine bakıyoruz.\n\nSiparişler İstanbul’daki depomuzdan hazırlanır. Hafta içi saat 15:00’e kadar verilen siparişler aynı gün kargoya verilir.',
+    'Ürünleri tek tek deneyip seçiyoruz: kılıfın tuşlara rahat basıp basmadığına, şarj cihazının yazan gücü gerçekten verip vermediğine bakıyoruz.\n\nSiparişler depomuzda hazırlanır; hafta içi saat 15:00’e kadar verilen siparişler aynı gün kargoya verilir.',
   experienceYears: '',
   experienceSubtitle: '',
-  storyImage: '/kapak/kapak-2.svg',
+  storyImage: '/kapak/hakkimizda-2.webp',
   highlights: [
     'Her üründe uyumlu model bilgisi',
     'Aynı gün kargo',
@@ -77,23 +77,27 @@ export const DEFAULT_CORPORATE_CONFIG: CorporateConfig = {
   ],
   kvkkBadge: '6698 sayılı Kanun kapsamında',
   kvkkTitle: 'Kişisel Verilerin Korunması (KVKK) Aydınlatma Metni',
-  kvkkEmail: 'yusufdemir4154@gmail.com',
+  kvkkEmail: 'ubei00@gmail.com',
   kvkkSections: [
     {
-      heading: 'Örnek mağaza',
-      text: 'UBEI, bir yazılım portföyü için hazırlanmış örnek bir e-ticaret sitesidir. Formlara girdiğiniz bilgiler hiçbir sunucuya gönderilmez ve kaydedilmez; yalnızca tarayıcınızda kalır.',
+      heading: 'Veri sorumlusu',
+      text: 'UBEI olarak web sitemizi ziyaret eden ve bizden alışveriş yapan kullanıcılarımızın kişisel verilerini 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak işleriz.',
+    },
+    {
+      heading: 'Hangi verileri işliyoruz',
+      text: 'Sipariş verdiğinizde ad-soyad, telefon, e-posta ve teslimat adresinizi; siparişinizi hazırlamak, kargoya vermek ve sizi sipariş durumu hakkında bilgilendirmek için kullanırız. Kart bilgileriniz bizde tutulmaz.',
     },
     {
       heading: 'Sepet ve favoriler',
-      text: 'Sepetiniz ve favorileriniz, siteye geri döndüğünüzde kaybolmasın diye yalnızca kendi tarayıcınızın yerel depolamasında tutulur.',
+      text: 'Sepetiniz ve favorileriniz, siteye geri döndüğünüzde kaybolmasın diye yalnızca kendi tarayıcınızda saklanır.',
     },
     {
-      heading: 'WhatsApp ile iletişim',
-      text: 'WhatsApp düğmesine bastığınızda mesaj kendi WhatsApp uygulamanızda açılır; göndermek isteyip istemediğiniz size kalmıştır.',
+      heading: 'Paylaşım',
+      text: 'Kişisel verileriniz satılmaz; yalnızca teslimat için kargo firmasıyla ve kanunen yetkili kurumlarla, gerektiği ölçüde paylaşılır.',
     },
     {
       heading: 'Haklarınız',
-      text: 'KVKK 11. madde uyarınca kişisel verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, düzeltilmesini veya silinmesini isteme haklarına sahipsiniz.',
+      text: 'KVKK 11. madde uyarınca verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini veya silinmesini isteme haklarına sahipsiniz.',
     },
   ],
 };

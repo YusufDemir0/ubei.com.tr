@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
           <div>© {currentYear} UBEI</div>
           <div>
-            Bu site <a href="https://yusufdemir.com.tr/projeler/#ubei" className="underline underline-offset-2 hover:text-white">Yusuf Demir</a>’in hazırladığı örnek bir mağazadır; ürünler ve fiyatlar örnektir, siparişler işleme alınmaz.
+            Bu site <a href="https://yusufdemir.com.tr" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-white">Yusuf Demir</a> tarafından yapılmıştır.
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import OrderPauseNotice from './OrderPauseNotice';
 import React from 'react';
 import Link from 'next/link';
 import { ShoppingBag, Trash2, Plus, Minus, ArrowRight } from 'lucide-react';
@@ -205,10 +206,12 @@ export const CartPage: React.FC = () => {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
 
-                <p className="text-xs text-neutral-600 mt-4 leading-relaxed">
+                <div className="mt-4"><OrderPauseNotice /></div>
+
+                {waNumber && <p className="text-xs text-neutral-600 mt-4 leading-relaxed">
                   1.000 TL ve üzeri siparişlerde kargo ücretsiz. 10 adet ve üzeri alım için{' '}
                   <a
-                    hidden={!waNumber} href={`https://wa.me/${waNumber}?text=Merhaba%20UBEI%2C%20i%C5%9Fyerimiz%20i%C3%A7in%20toplu%20aksesuar%20almak%20istiyoruz.%20Adetli%20fiyat%20alabilir%20miyiz%3F`}
+                    href={`https://wa.me/${waNumber}?text=Merhaba%20UBEI%2C%20i%C5%9Fyerimiz%20i%C3%A7in%20toplu%20aksesuar%20almak%20istiyoruz.%20Adetli%20fiyat%20alabilir%20miyiz%3F`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-wood underline underline-offset-2 hover:text-wood-dark"
@@ -216,7 +219,7 @@ export const CartPage: React.FC = () => {
                     adetli fiyat isteyin
                   </a>
                   .
-                </p>
+                </p>}
               </div>
             </div>
 

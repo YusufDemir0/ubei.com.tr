@@ -1,6 +1,6 @@
 /**
- * UBEI örnek mağaza verisi. Site backend'siz yayınlandığı için ürünler, kategoriler ve CMS
- * içerikleri buradan gelir (bkz. mock/adapter.ts). Fiyatlar ve stoklar örnektir.
+ * UBEI mağaza verisi. Site statik yayınlandığı için ürünler, kategoriler ve CMS içerikleri
+ * buradan gelir (bkz. mock/adapter.ts).
  */
 import type { Category, Product } from '../types';
 
@@ -22,7 +22,7 @@ export const categories: Category[] = CATS.map((c, i) => ({
   slug: c.slug,
   name: c.name,
   description: c.description,
-  image: `/kategoriler/${c.slug}.svg`,
+  image: `/kategoriler/${c.slug}.webp`,
   parentId: null,
   sortOrder: i,
   children: [],
@@ -65,11 +65,11 @@ const SEEDS: Seed[] = [
     features: ['Kaymaz yumuşak doku', 'Mikrofiber iç astar', 'Tuşlar kılıf üzerinden rahat basılır', 'Kablosuz şarjla uyumlu'],
   },
   {
-    slug: 'galaxy-s24-ultra-darbe-emici-kilif', name: 'Galaxy S24 Ultra Darbe Emici Kılıf', cat: 'telefon-kiliflari',
-    price: 499, stock: 31, material: 'TPU gövde, köşelerde hava yastığı', dimensions: 'Uyumlu model: Samsung Galaxy S24 Ultra',
+    slug: 'iphone-15-pro-darbe-emici-kilif', name: 'iPhone 15 Pro Darbe Emici Kılıf · Siyah', cat: 'telefon-kiliflari',
+    price: 499, stock: 31, material: 'TPU gövde, köşelerde hava yastığı', dimensions: 'Uyumlu model: iPhone 15 Pro',
     colors: ['Siyah'], salesCount: 157,
     description: 'Köşelerindeki hava yastıklarıyla düşmelerde darbeyi emen kılıf. İnce yapısına rağmen kamera adasını tamamen çevreler.',
-    features: ['Köşelerde hava yastığı', 'Kamera adasını çevreleyen çerçeve', 'S Pen erişimi açık', 'Kablosuz şarjla uyumlu'],
+    features: ['Köşelerde hava yastığı', 'Kamera adasını çevreleyen çerçeve', 'Kaymayan mat yüzey', 'Kablosuz şarjla uyumlu'],
   },
   {
     slug: 'iphone-14-deri-cuzdan-kilif-taba', name: 'iPhone 14 Deri Cüzdan Kılıf · Taba', cat: 'telefon-kiliflari',
@@ -79,11 +79,11 @@ const SEEDS: Seed[] = [
     features: ['İki kartlık arka bölme', 'Mıknatıslı kapak', 'Hakiki deri', 'Kart çıkarmadan temassız ödeme'],
   },
   {
-    slug: 'redmi-note-13-pro-kamera-korumali-kilif', name: 'Redmi Note 13 Pro Kamera Korumalı Kılıf', cat: 'telefon-kiliflari',
-    price: 299, stock: 57, material: 'TPU, kayar kamera kapağı', dimensions: 'Uyumlu model: Xiaomi Redmi Note 13 Pro',
+    slug: 'iphone-15-pro-kamera-korumali-kilif-haki', name: 'iPhone 15 Pro Kamera Korumalı Kılıf · Haki', cat: 'telefon-kiliflari',
+    price: 299, stock: 57, material: 'Mat sıvı silikon, metal kamera çerçevesi', dimensions: 'Uyumlu model: iPhone 15 Pro',
     colors: ['Haki', 'Siyah'], salesCount: 134,
-    description: 'Kamerayı kullanmadığınızda kapatan kayar kapaklı kılıf. Lensleri çantada ve masada çizilmekten korur.',
-    features: ['Kayar kamera kapağı', 'Mat, parmak izi tutmayan yüzey', 'İnce ve hafif', 'Kablosuz şarjla uyumlu'],
+    description: 'Kamera adasının etrafındaki yükseltilmiş metal çerçeve, telefon masaya sırtüstü konduğunda lensleri yüzeye değdirmez.',
+    features: ['Yükseltilmiş metal kamera çerçevesi', 'Mat, parmak izi tutmayan yüzey', 'İnce ve hafif', 'Kablosuz şarjla uyumlu'],
   },
   {
     slug: 'iphone-15-pro-max-hayalet-cam', name: 'iPhone 15 Pro Max Hayalet Cam', cat: 'ekran-koruyucular',
@@ -93,11 +93,11 @@ const SEEDS: Seed[] = [
     features: ['Yandan bakışta karartma', '9H sertlik', 'Kolay uygulama aparatı kutuda', 'Yüz tanıma ile sorunsuz'],
   },
   {
-    slug: 'galaxy-s24-kirilmaz-cam-2li', name: "Galaxy S24 Kırılmaz Cam (2'li paket)", cat: 'ekran-koruyucular',
-    price: 279, originalPrice: 349, stock: 90, material: 'Temperli cam', dimensions: 'Uyumlu model: Samsung Galaxy S24',
+    slug: 'iphone-15-kirilmaz-cam-2li', name: "iPhone 15 Kırılmaz Cam (2'li paket)", cat: 'ekran-koruyucular',
+    price: 279, originalPrice: 349, stock: 90, material: 'Temperli cam', dimensions: 'Uyumlu model: iPhone 15',
     salesCount: 176,
-    description: 'Kutudan iki cam çıkar; biri kırılırsa yedeği hazırdır. Parmak izi okuyucusuyla çalışacak şekilde kesilmiştir.',
-    features: ['2 adet cam', '9H sertlik', 'Ekran içi parmak izi okuyucusuyla uyumlu', 'Yağ itici kaplama'],
+    description: 'Kutudan iki cam çıkar; biri kırılırsa yedeği hazırdır. Kenarlara kadar uzanan kesimi kılıfla çakışmaz.',
+    features: ['2 adet cam', '9H sertlik', 'Kılıfla uyumlu kesim', 'Yağ itici kaplama'],
   },
   {
     slug: 'kamera-lens-koruyucu-seti', name: 'Kamera Lens Koruyucu Seti', cat: 'ekran-koruyucular',
@@ -114,11 +114,11 @@ const SEEDS: Seed[] = [
     features: ['USB Power Delivery 3.0', 'Aşırı ısınma ve kısa devre koruması', 'Kompakt boyut', 'iPhone, iPad ve Android ile uyumlu'],
   },
   {
-    slug: '65w-gan-3-portlu-sarj-cihazi', name: '65W GaN 3 Portlu Şarj Cihazı', cat: 'sarj-cihazlari',
-    price: 1149, originalPrice: 1399, stock: 26, badge: 'İndirimde', material: 'GaN teknolojisi', dimensions: '65 W · 2 × USB-C, 1 × USB-A',
+    slug: '70w-gan-seyahat-sarj-cihazi', name: '70W GaN Seyahat Şarj Cihazı', cat: 'sarj-cihazlari',
+    price: 1149, originalPrice: 1399, stock: 26, badge: 'İndirimde', material: 'GaN teknolojisi', dimensions: '70 W · 2 × USB-C, 2 × USB-A · değiştirilebilir fiş',
     salesCount: 97,
-    description: 'Dizüstü bilgisayar, telefon ve kulaklığı tek prizden aynı anda şarj eder. GaN teknolojisi sayesinde benzer güçteki adaptörlerden çok daha küçüktür.',
-    features: ['Tek port kullanımda 65 W', 'Üç cihazı aynı anda şarj', 'Katlanır fiş', 'MacBook Air ve iPad ile uyumlu'],
+    description: 'Dizüstü bilgisayar, telefon ve kulaklığı tek prizden aynı anda şarj eder. Değiştirilebilir fişleriyle yurt dışında da çalışır; GaN sayesinde benzer güçteki adaptörlerden çok daha küçüktür.',
+    features: ['Tek port kullanımda 70 W', 'Dört cihazı aynı anda şarj', 'AB, ABD, İngiltere ve Avustralya fişleri', 'MacBook Air ve iPad ile uyumlu'],
   },
   {
     slug: '15w-magsafe-uyumlu-kablosuz-sarj', name: '15W MagSafe Uyumlu Kablosuz Şarj', cat: 'sarj-cihazlari',
@@ -221,7 +221,7 @@ const SEEDS: Seed[] = [
 ];
 
 export const products: Product[] = SEEDS.map((s, i) => {
-  const images = [`/urunler/${s.slug}-1.svg`, `/urunler/${s.slug}-2.svg`];
+  const images = [`/urunler/${s.slug}-1.webp`, `/urunler/${s.slug}-2.webp`];
   return {
     id: s.slug,
     slug: s.slug,
@@ -251,16 +251,16 @@ export const products: Product[] = SEEDS.map((s, i) => {
 export const cms: Record<string, unknown> = {
   landing_page_config: { type: 'home' },
   ticker_items: [
-    '1.000 TL ve üzeri siparişlerde kargo ücretsiz',
-    'Saat 15:00\'e kadar verilen siparişler aynı gün kargoda',
-    'Tüm ürünlerde 14 gün içinde koşulsuz iade',
+    'Sipariş alımına geçici olarak ara verdik',
+    'Ürünleri incelemeye ve favorilerinize eklemeye devam edebilirsiniz',
+    'Sorularınız için: ubei00@gmail.com',
   ],
   ticker_style: { backgroundColor: '#111418', textColor: '#C8F25C', speedSeconds: 40 },
   contact_info: {
-    phone: '',
-    email: 'yusufdemir4154@gmail.com',
-    address: 'Online mağaza · Türkiye geneline kargo',
-    whatsapp: '+905511345360',
+    phone: '+90 850 000 82 34',
+    email: 'ubei00@gmail.com',
+    address: 'Online mağaza · Türkiye geneline gönderim',
+    whatsapp: '',
     workingHours: 'Hafta içi 09:00 – 18:00, Cumartesi 10:00 – 16:00',
   },
   social_links: { instagram: 'https://instagram.com/', tiktok: '', youtube: '', facebook: '', telegram: '', whatsapp: '' },
@@ -275,19 +275,19 @@ export const cms: Record<string, unknown> = {
               id: 's1', badge: 'Yeni sezon',
               title: 'Telefonunuza yakışan aksesuarlar',
               subtitle: 'Kılıftan şarj cihazına, her model için seçilmiş ürünler. 1.000 TL üzeri kargo ücretsiz.',
-              image: '/kapak/kapak-1.svg', buttonText: 'Kılıflara göz atın', buttonLink: '/kategori/telefon-kiliflari',
+              image: '/kapak/kapak-1.webp', buttonText: 'Kılıflara göz atın', buttonLink: '/kategori/telefon-kiliflari',
             },
             {
               id: 's2', badge: 'Hızlı şarj',
               title: 'Yarım saatte %50 şarj',
               subtitle: 'USB-C hızlı şarj adaptörleri, GaN şarj cihazları ve kablosuz şarj istasyonları.',
-              image: '/kapak/kapak-2.svg', buttonText: 'Şarj cihazları', buttonLink: '/kategori/sarj-cihazlari',
+              image: '/kapak/kapak-2.webp', buttonText: 'Şarj cihazları', buttonLink: '/kategori/sarj-cihazlari',
             },
             {
               id: 's3', badge: 'İndirim',
               title: 'Powerbank ve GaN şarjda indirim',
               subtitle: 'Seçili ürünlerde %20\'ye varan indirim, stoklarla sınırlı.',
-              image: '/kapak/kapak-3.svg', buttonText: 'İndirimli ürünler', buttonLink: '/indirimler',
+              image: '/kapak/kapak-3.webp', buttonText: 'İndirimli ürünler', buttonLink: '/indirimler',
             },
           ],
         },
@@ -297,7 +297,7 @@ export const cms: Record<string, unknown> = {
       { id: 'products', type: 'product_grid', props: { title: 'Çok satanlar', subtitle: 'Bu ay en çok tercih edilen ürünler.', limit: 8 } },
       {
         id: 'how-we-work', type: 'feature_list', background: 'paper', props: {
-          title: 'Siparişiniz bugün kargoda',
+          title: 'Nasıl çalışıyoruz',
           text: 'Türkiye\'nin her yerine gönderiyoruz. Ürünü beğenmezseniz 14 gün içinde iade edebilirsiniz.',
           items: [
             { title: 'Aynı gün kargo', text: 'Hafta içi saat 15:00\'e kadar verilen siparişler aynı gün kargoya verilir.' },

@@ -1,5 +1,6 @@
 'use client';
 
+import OrderPauseNotice from './OrderPauseNotice';
 import React from 'react';
 import Link from 'next/link';
 import { X, Trash2, ShoppingBag, Plus, Minus, ArrowRight } from 'lucide-react';
@@ -182,6 +183,8 @@ export const CartDrawer: React.FC = () => {
                   <span className="font-mono tabular-nums-all">{formatPrice(subtotal)}</span>
                 </div>
               </div>
+
+              <div className="mb-3"><OrderPauseNotice compact /></div>
 
               {/* Checkout CTA */}
               <Link

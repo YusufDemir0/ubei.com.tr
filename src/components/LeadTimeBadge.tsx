@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Product } from '../types';
+import { ORDERS_PAUSED } from '../lib/storeStatus';
 
 interface LeadTimeBadgeProps {
   product: Pick<Product, 'stock' | 'leadTimeDays'>;
@@ -9,7 +10,7 @@ interface LeadTimeBadgeProps {
 /** Stok / üretim süresi metninin tek kaynağı (ürün sayfası, sepet çekmecesi ve sepet sayfası aynı metni gösterir). */
 export function getLeadTimeLabel(product: Pick<Product, 'stock' | 'leadTimeDays'>): { inStock: boolean; label: string } {
   if (product.stock && product.stock > 0) {
-    return { inStock: true, label: 'Stokta · 1–2 iş günü sevkiyat' };
+    return { inStock: true, label: ORDERS_PAUSED ? 'Stokta' : 'Stokta · 1–2 iş günü sevkiyat' };
   }
   const days = product.leadTimeDays && product.leadTimeDays > 0 ? `${product.leadTimeDays}` : '3–5';
   return { inStock: false, label: `Tedarikte · ${days} iş günü` };
