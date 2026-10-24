@@ -1,0 +1,38 @@
+{
+  "name": "ubei",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "node --test tests/unit-core.test.js && node --test --experimental-strip-types tests/phone.test.ts",
+    "cors:apply": "bash scripts/apply-cors.sh"
+  },
+  "dependencies": {
+    "axios": "^1.8.2",
+    "clsx": "^2.1.1",
+    "jose": "^6.2.9",
+    "lucide-react": "^1.25.0",
+    "next": "^15.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "^0.35.4",
+    "tailwind-merge": "^3.0.2",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.9",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.21.0",
+    "eslint-config-next": "^15.2.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5.8.2"
+  }
+}

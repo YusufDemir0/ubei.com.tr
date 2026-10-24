@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+@theme {
+  /* Marka paleti: limon yeşili vurgu + koyu antrasit; serin kırık beyaz zeminler. Renkler yalnız buradan değişir. */
+  --color-brand: #C8F25C;        /* birincil CTA zemini, vurgu (üstünde yalnız ink metin) */
+  --color-brand-dark: #B3DE45;
+  --color-brand-soft: #F1FCD6;
+  --color-ink: #111418;          /* ana metin, koyu yüzeyler */
+  --color-canvas: #F7F8FA;       /* sayfa zemini */
+  --color-paper: #EEF1F5;        /* panel / ikincil zemin */
+  --color-paper-deep: #E2E7EE;
+  --color-line: #E1E5EB;         /* ayırıcı çizgi */
+  --color-line-strong: #C5CCD6;  /* kontrol kenarı */
+  --color-wood: #2B4C7E;         /* bağlantı ve vurgu metni (beyaz üzerinde AA) */
+  --color-wood-dark: #1C3559;
+  --color-wood-light: #C8F25C;   /* koyu zemin üzerindeki vurgu = marka yeşili */
+  --color-steel: #8A93A0;
+  --color-signal: #C2410C;       /* indirim ve uyarı */
+  --color-signal-dark: #9A3412;
+  --color-ok: #2F6B45;
+  --color-ok-soft: #EAF4EE;
+  --color-whatsapp: #128C4A;
+  --color-whatsapp-dark: #0E6F3B;
+
+  --font-sans: var(--font-plex-sans), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--font-archivo), var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas text-ink font-sans antialiased selection:bg-brand selection:text-ink overflow-x-clip;
+  }
+
+  /* Custom Smooth Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-paper;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-line-strong rounded-full hover:bg-steel transition-colors;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-wood;
+  }
+
+  .tabular-nums-all {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Custom styles to hide standard scrollbars for slider categories */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Hareket: yalnız durum değişimini anlatan kısa geçişler. Döngüsel animasyon yok. */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* Sonsuz kayan şeritler (duyuru bandı, kategori balonları): içerik iki kez basılır, -50% kayınca dikiş görünmez */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.marquee-pause:hover .animate-marquee,
+.marquee-pause:focus-within .animate-marquee {
+  animation-play-state: paused;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out both;
+}
+
+.animate-drawer-right {
+  animation: slideInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-in {
+  animation: slideInLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* 3D Kredi Kartı Dönüş Animasyonu Yardımcı Sınıfları */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ============================================================ */
+/* PRINT & PDF EXPORT OPTIMIZATIONS (A4 Landscape Standard)     */
+/* ============================================================ */
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    background-color: #FFFFFF !important;
+    color: #171717 !important;
+    font-size: 9.5pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide UI elements in print */
+  header:not(.print-header),
+  #main-footer,
+  .print\:hidden,
+  button:not(.print-visible),
+  input,
+  select,
+  nav {
+    display: none !important;
+  }
+
+  /* Force all background colors and borders to print sharply */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Landscape A4 Sheet (1 Product Per Page - 297mm x 210mm) */
+  .katalog-sheet-landscape {
+    width: 297mm !important;
+    height: 210mm !important;
+    min-height: 210mm !important;
+    max-height: 210mm !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin: 0 !important;
+    padding: 10mm 15mm !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #FFFFFF !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .katalog-sheet-landscape article {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Ensure images render cleanly in print without overflowing */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Utility print displays */
+  .print\:block {
+    display: block !important;
+  }
+  .print\:flex {
+    display: flex !important;
+  }
+  .print\:grid {
+    display: grid !important;
+  }
+  .print\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  }
+  .print\:col-span-7 {
+    grid-column: span 7 / span 7 !important;
+  }
+  .print\:col-span-5 {
+    grid-column: span 5 / span 5 !important;
+  }
+  .print\:order-1 {
+    order: 1 !important;
+  }
+  .print\:order-2 {
+    order: 2 !important;
+  }
+}
+
+/* High-Performance Rendering & GPU Acceleration */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+
+/* Sayfa geçiş çubuğu: hızla %70'e gelir, yanıt beklenirken yavaşlar */
+@keyframes nav-progress {
+  0% { width: 0; }
+  30% { width: 55%; }
+  100% { width: 92%; }
+}
+.animate-nav-progress {
+  animation: nav-progress 6s cubic-bezier(0.1, 0.7, 0.2, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-nav-progress { animation: none; width: 70%; }
+}

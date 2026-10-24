@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs>
+  <linearGradient id="kbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A1F14"/><stop offset="1" stop-color="#2F3B22"/></linearGradient>
+  <radialGradient id="glow" cx="0.72" cy="0.5" r="0.5"><stop offset="0" stop-color="#C8F25C" stop-opacity="0.22"/><stop offset="1" stop-color="#C8F25C" stop-opacity="0"/></radialGradient>
+  <radialGradient id="sh" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#000" stop-opacity="0.35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  <linearGradient id="gloss" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.45"/><stop offset="0.45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#kbg)"/>
+<rect width="1600" height="900" fill="url(#glow)"/>
+<g transform="translate(760 130) scale(0.85)"><ellipse cx="400" cy="680" rx="210" ry="26" fill="url(#sh)"/>
+<g transform="translate(400 400) rotate(-8)">
+<rect x="-150" y="-230" width="300" height="440" rx="44" fill="#e9edf1" stroke="#a3a5a8" stroke-width="5"/>
+<circle cx="0" cy="-20" r="70" fill="none" stroke="#c9d3de" stroke-width="8"/>
+<text x="0" y="140" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff" text-anchor="middle">10.000</text>
+<text x="0" y="178" font-family="Arial, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">mAh</text>
+<circle cx="-45" cy="-180" r="7" fill="#7be0a0"/><circle cx="-15" cy="-180" r="7" fill="#7be0a0"/><circle cx="15" cy="-180" r="7" fill="#7be0a0"/><circle cx="45" cy="-180" r="7" fill="#7be0a0"/>
+<rect x="-150" y="-230" width="300" height="440" rx="44" fill="url(#gloss)"/>
+</g></g><g transform="translate(1020 170) scale(0.8)"><ellipse cx="400" cy="680" rx="180" ry="26" fill="url(#sh)"/>
+<g transform="translate(400 400) rotate(-10)">
+<rect x="-16" y="130" width="14" height="80" rx="4" fill="#b8c2cc"/><rect x="22" y="130" width="14" height="80" rx="4" fill="#b8c2cc"/>
+<rect x="-115.0" y="-160" width="230" height="300" rx="34" fill="#2a3138" stroke="#20262b" stroke-width="5"/>
+<rect x="-80" y="-130" width="50" height="18" rx="9" fill="#2a3138"/><rect x="-20" y="-130" width="50" height="18" rx="9" fill="#2a3138"/><rect x="40" y="-132" width="50" height="22" rx="4" fill="#2a3138"/>
+<text x="0" y="40" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#171a1e" text-anchor="middle">65W</text>
+<rect x="-115.0" y="-160" width="230" height="300" rx="34" fill="url(#gloss)"/>
+</g></g>
+</svg>
